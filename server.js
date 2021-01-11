@@ -5,6 +5,8 @@ require('./hbs/helper');
 
 app.use(express.static(__dirname + '/public'));
 
+let port = process.env.PORT || 3000;
+
 //hbs view engine
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials', function(err) {});
@@ -12,12 +14,12 @@ hbs.registerPartials(__dirname + '/views/partials', function(err) {});
 
 
 app.get('/', function(req, res) {
-    res.render('home')
+    res.render('home');
 })
 
 app.get('/about', function(req, res) {
-    res.render('about')
+    res.render('about');
 })
-app.listen(3000, () => {
-    console.log("escuchando en puerto 3000")
+app.listen(port, () => {
+    console.log(`escuchando en puerto ${port}`);
 })
